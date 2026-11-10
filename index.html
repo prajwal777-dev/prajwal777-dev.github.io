@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prajwal Mhaske | AI Automation Engineer</title>
+<meta name="description" content="Python Automation Engineer in Pune with 3 years of experience building API-driven workflows, web automation, OCR pipelines and LLMs · RAG.">
+<meta property="og:title" content="Prajwal Mhaske | Python Automation Engineer">
+<meta property="og:description" content="Python automation, REST APIs, web scraping, OCR and practical LLMs · RAG.">
+<meta property="og:type" content="website">
+
+<script>document.documentElement.classList.add("js");</script>
+<style>
+:root{
+  --bg:#fafaf7; --surface:#ffffff; --ink:#16181d; --muted:#5b616e; --line:#e4e4dd;
+  --accent:#0f766e; --accent-ink:#ffffff; --accent-soft:rgba(15,118,110,.12);
+  --todo-bg:#fff3b0; --todo-ink:#5c4400; --radius:14px; --maxw:1040px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1114; --surface:#171a1f; --ink:#eceef2; --muted:#9aa1ae; --line:#272b33;
+    --accent:#2dd4bf; --accent-ink:#06201d; --accent-soft:rgba(45,212,191,.14);
+    --todo-bg:#4a3b00; --todo-ink:#ffe48a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1114; --surface:#171a1f; --ink:#eceef2; --muted:#9aa1ae; --line:#272b33;
+  --accent:#2dd4bf; --accent-ink:#06201d; --accent-soft:rgba(45,212,191,.14);
+  --todo-bg:#4a3b00; --todo-ink:#ffe48a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.todo{background:var(--todo-bg);color:var(--todo-ink);padding:0 4px;border-radius:4px;font-weight:600}
+
+/* reveal on scroll (only when JS is on) */
+.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.in{opacity:1;transform:none}
+
+header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+.brand{font-weight:700;color:var(--ink)}
+nav a{color:var(--muted);margin-left:18px;font-size:.93rem}
+nav a:hover{color:var(--ink);text-decoration:none}
+@media(max-width:700px){nav a:not(.keep){display:none}}
+.theme{background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:4px 11px;margin-left:18px;cursor:pointer;font:inherit;font-size:.85rem}
+
+.hero{padding:72px 0 30px;position:relative}
+.hero::before{content:"";position:absolute;inset:-60px -10vw auto -10vw;height:420px;z-index:-1;
+  background:radial-gradient(600px 260px at 18% 40%,var(--accent-soft),transparent 70%),
+             radial-gradient(500px 220px at 85% 20%,var(--accent-soft),transparent 70%)}
+.eyebrow{font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.08;margin:10px 0 12px;letter-spacing:-.02em}
+.rot{font-size:1.2rem;margin:0 0 14px;color:var(--muted)}
+.rot b{color:var(--accent);display:inline-block;min-width:24ch;min-height:1.5em;white-space:nowrap;vertical-align:baseline;will-change:transform,opacity}
+.rot b.slide-out{animation:phraseSlideOut .34s cubic-bezier(.4,0,.2,1) both}
+.rot b.slide-in{animation:phraseSlideIn .48s cubic-bezier(.22,.7,.25,1) both}
+@keyframes phraseSlideOut{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-.65em)}}
+@keyframes phraseSlideIn{from{opacity:0;transform:translateY(.65em)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:520px){.rot b{min-width:0;white-space:normal;min-height:1.5em}}
+@media(prefers-reduced-motion:reduce){.rot b.slide-out,.rot b.slide-in{animation:none}}
+.lede{font-size:1.1rem;color:var(--muted);max-width:740px;margin:0 0 26px}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:10px 18px;border-radius:999px;border:1px solid var(--line);
+  color:var(--ink);background:var(--surface);font-weight:600;font-size:.95rem;cursor:pointer;font-family:inherit;transition:transform .15s ease}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn:disabled{opacity:.55;cursor:default;transform:none}
+
+/* hero pipeline */
+.pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;margin-top:40px}
+.pnode{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.pnode svg{width:26px;height:26px;stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pnode b{display:block;margin-top:8px}
+.pnode span{color:var(--muted);font-size:.85rem}
+.pnode:not(:last-child)::after{content:"";position:absolute;top:50%;left:100%;width:36px;height:2px;background:var(--line);transform:translateY(-50%)}
+.pnode:not(:last-child)::before{content:"";position:absolute;top:50%;left:100%;width:8px;height:8px;margin-top:-4px;border-radius:50%;
+  background:var(--accent);z-index:1;animation:flow 2.4s linear infinite}
+.pnode:nth-child(2)::before{animation-delay:.5s}.pnode:nth-child(3)::before{animation-delay:1s}
+@keyframes flow{0%{transform:translateX(-4px);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translateX(32px);opacity:0}}
+@media(max-width:820px){.pipe{grid-template-columns:1fr 1fr;gap:12px}.pnode::before,.pnode::after{display:none!important}}
+
+section{padding:46px 0}
+h2{font-size:1.6rem;letter-spacing:-.01em;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 26px}
+
+/* impact comparisons */
+.impact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media(max-width:760px){.impact-grid{grid-template-columns:1fr}}
+.impact-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:19px 20px;min-width:0}
+.impact-title{font-weight:700;margin:0 0 14px}
+.impact-compare{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:10px;align-items:stretch}
+.impact-side{min-width:0;border-radius:11px;padding:12px 13px;background:var(--bg);border:1px solid var(--line)}
+.impact-side.after{background:var(--accent-soft);border-color:color-mix(in srgb,var(--accent) 24%,var(--line))}
+.impact-label{display:block;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted);margin-bottom:5px}
+.impact-side.after .impact-label{color:var(--accent)}
+.impact-value{display:block;font-size:clamp(1.25rem,2.5vw,1.65rem);line-height:1.2;font-weight:750;letter-spacing:-.035em;color:var(--ink);overflow-wrap:anywhere}
+.impact-side.after .impact-value{color:var(--accent)}
+.impact-arrow{align-self:center;color:var(--accent);font-size:1.2rem;font-weight:700}
+.note{color:var(--muted);font-size:.84rem;margin-top:12px}
+@media(max-width:420px){.impact-card{padding:15px}.impact-compare{gap:7px}.impact-side{padding:10px}.impact-value{font-size:1.2rem}}
+
+/* filter chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:5px 14px;cursor:pointer;font:inherit;font-size:.88rem}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 8px 24px -14px var(--accent)}
+.card[hidden]{display:none}
+.card h3{margin:0 0 2px;font-size:1.15rem}
+.role{color:var(--muted);font-size:.85rem;margin-bottom:12px}
+.card dl{margin:0}
+.card dt{font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);font-weight:700;margin-top:10px}
+.card dd{margin:2px 0 0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:14px}
+.tag{font-size:.78rem;padding:2px 9px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+
+/* demos */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:18px}
+.panel h3{margin:0 0 4px;font-size:1.15rem}
+.panel .cap{color:var(--muted);font-size:.9rem;margin:0 0 16px}
+.demo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){.demo{grid-template-columns:1fr}}
+.paper{position:relative;background:#fff;color:#222;border-radius:8px;padding:16px 18px;font-size:.85rem;line-height:1.5;
+  border:1px solid #d9d9d2;overflow:hidden;min-height:300px}
+.paper h4{margin:0 0 6px;font-size:.95rem;letter-spacing:.04em}
+.paper .row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed #d7d7cf;padding:4px 0}
+.paper .meta{display:flex;justify-content:space-between;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.paper .tot{font-weight:700;border-bottom:none;margin-top:6px}
+.f{padding:0 3px;border-radius:3px;transition:background .3s ease,box-shadow .3s ease}
+.f.hit{background:#b9f3e7;box-shadow:0 0 0 2px #2dd4bf}
+.scan{position:absolute;left:0;right:0;top:-6px;height:3px;background:#0f766e;box-shadow:0 0 14px 4px rgba(15,118,110,.55);opacity:0}
+.scanning .scan{opacity:1;animation:scan 2.8s ease-in-out forwards}
+@keyframes scan{from{top:-6px}to{top:100%}}
+.out{background:#0c0f12;color:#c9f5ee;border-radius:8px;padding:14px 16px;min-height:300px;margin:0;overflow:auto;font-size:.8rem;line-height:1.55;white-space:pre-wrap}
+.status{color:var(--muted);font-size:.88rem;margin-left:6px}
+.controls{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:14px}
+
+/* RAG stepper */
+.steps{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.step{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:6px 14px;cursor:pointer;font:inherit;font-size:.88rem}
+.step.active{background:var(--accent-soft);border-color:var(--accent);color:var(--ink);font-weight:600}
+.stage{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center;min-height:190px}
+@media(max-width:820px){.stage{grid-template-columns:1fr}}
+.stage h4{margin:0 0 6px;font-size:1.05rem}
+.stage p{margin:0;color:var(--muted)}
+.vis{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;min-height:170px;display:flex;align-items:center;justify-content:center}
+.vq{font-style:italic;text-align:center}
+.vbars{display:flex;align-items:flex-end;gap:4px;height:110px;width:100%}
+.vbars i{flex:1;background:var(--accent);border-radius:3px 3px 0 0;animation:grow .6s ease both}
+@keyframes grow{from{transform:scaleY(.1);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
+.scatter{position:relative;width:100%;height:140px}
+.scatter i{position:absolute;width:10px;height:10px;border-radius:50%;background:var(--line);transform:translate(-50%,-50%);transition:background .4s ease,transform .4s ease}
+.scatter i.hot{background:var(--accent);transform:translate(-50%,-50%) scale(1.5)}
+.scatter i.q{background:var(--ink);border-radius:2px}
+.chunks{display:grid;gap:8px;width:100%}
+.chunk{border:1px solid var(--accent);background:var(--accent-soft);border-radius:8px;padding:8px 10px;font-size:.85rem;animation:grow .5s ease both;transform-origin:top}
+.ans{font-size:.92rem}
+.ans .mono{color:var(--accent)}
+
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:760px){.skills{grid-template-columns:1fr}}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px}
+.skill h3{margin:0 0 8px;font-size:.95rem}
+.skill p{margin:0;color:var(--muted)}
+
+.job{border-left:2px solid var(--line);padding:0 0 22px 20px;margin-left:6px;position:relative}
+.job::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.job h3{margin:0;font-size:1.05rem}
+.job .when{color:var(--muted);font-size:.88rem;margin-bottom:6px}
+.job ul{margin:6px 0 0;padding-left:18px}
+.job li{margin:4px 0}
+.edu{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:760px){.edu{grid-template-columns:1fr}}
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;text-align:center}
+.contact p{color:var(--muted);max-width:560px;margin:6px auto 18px}
+footer{padding:30px 0 50px;color:var(--muted);font-size:.88rem;text-align:center}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Prajwal Mhaske</a>
+    <nav>
+      <a href="#work">Projects</a>
+      <a href="#impact">Impact</a>
+      <a href="#demos">Demos</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a class="keep" href="#contact">Contact</a>
+      <button class="theme" id="theme" aria-label="Toggle light or dark theme">Theme</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <div class="hero">
+      <div class="eyebrow">Pune, India</div>
+      <h1>AI Automation Engineer</h1>
+      <p class="rot">I build <b id="rot">API-driven workflows</b></p>
+      <p class="lede">
+        I build Python automation for operational and publishing workflows, using REST APIs, browser automation, web scraping, OCR and document processing.
+        With 3 years of experience, I have reduced an 8-hour daily process to 30 minutes and automated workflows that previously required multiple people.
+        I have also built a personal project exploring local LLM/RAG solutions.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:prajwalmhaske53@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/prajwal-mhaske-b595831b4/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="#work">Explore my projects</a>
+      </div>
+
+      <div class="pipe" role="img" aria-label="A broad view of my automation approach: connect, automate, process and deliver">
+        <div class="pnode">
+          <svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.7 10.7l6.6-3.4M8.7 13.3l6.6 3.4"/></svg>
+          <b>Connect</b><span>APIs &middot; Platforms &middot; Apps</span>
+        </div>
+        <div class="pnode">
+          <svg viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"/></svg>
+          <b>Automate</b><span>Python &middot; Selenium &middot; Requests</span>
+        </div>
+        <div class="pnode">
+          <svg viewBox="0 0 24 24"><path d="M12 3a7 7 0 00-4 12.7V19h8v-3.3A7 7 0 0012 3z"/><path d="M9 22h6M9 12l2 2 4-4"/></svg>
+          <b>Process</b><span>OCR &middot; Pandas &middot; LLMs · RAG</span>
+        </div>
+        <div class="pnode">
+          <svg viewBox="0 0 24 24"><path d="M4 7h16v13H4z"/><path d="M4 8l8 6 8-6M8 4h8"/></svg>
+          <b>Deliver</b><span>Workflows &middot; Reports &middot; Cloud &middot; Email</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="impact">
+      <h2>Impact at a glance</h2>
+      <p class="sub">Before and after, from my own projects.</p>
+      <div class="impact-grid reveal">
+        <article class="impact-card">
+          <h3 class="impact-title">Daily scraping process</h3>
+          <div class="impact-compare">
+            <div class="impact-side"><span class="impact-label">Before</span><strong class="impact-value">8 hours</strong></div>
+            <span class="impact-arrow" aria-hidden="true">→</span>
+            <div class="impact-side after"><span class="impact-label">After</span><strong class="impact-value">30 min</strong></div>
+          </div>
+        </article>
+        <article class="impact-card">
+          <h3 class="impact-title">Staffing for that process</h3>
+          <div class="impact-compare">
+            <div class="impact-side"><span class="impact-label">Before</span><strong class="impact-value">6 FTEs</strong></div>
+            <span class="impact-arrow" aria-hidden="true">→</span>
+            <div class="impact-side after"><span class="impact-label">After</span><strong class="impact-value">1 FTE</strong></div>
+          </div>
+        </article>
+        <article class="impact-card">
+          <h3 class="impact-title">End-to-end operational workflow</h3>
+          <div class="impact-compare">
+            <div class="impact-side"><span class="impact-label">Before</span><strong class="impact-value">4 FTEs</strong></div>
+            <span class="impact-arrow" aria-hidden="true">→</span>
+            <div class="impact-side after"><span class="impact-label">After</span><strong class="impact-value">1 FTE</strong></div>
+          </div>
+          <p class="note">75% faster workflow</p>
+        </article>
+        <article class="impact-card">
+          <h3 class="impact-title">Personalized email sends</h3>
+          <div class="impact-compare">
+            <div class="impact-side"><span class="impact-label">Before</span><strong class="impact-value">1–2 hrs</strong></div>
+            <span class="impact-arrow" aria-hidden="true">→</span>
+            <div class="impact-side after"><span class="impact-label">After</span><strong class="impact-value">5–10 min</strong></div>
+          </div>
+        </article>
+      </div>
+      <p class="note">Reported before-and-after outcomes from selected projects.</p>
+    </section>
+
+    <section id="work">
+      <h2>Projects</h2>
+      <p class="sub">Problem, approach, result. Results are based on my project experience. Descriptions are generalized; no employer or client data is included. </p>
+
+      <div class="chips" id="chips" role="group" aria-label="Filter projects">
+        <button class="chip" data-f="all" aria-pressed="true">All</button>
+        <button class="chip" data-f="scraping" aria-pressed="false">Scraping</button>
+        <button class="chip" data-f="docs" aria-pressed="false">Documents &amp; OCR</button>
+        <button class="chip" data-f="api" aria-pressed="false">APIs</button>
+        <button class="chip" data-f="ai" aria-pressed="false">AI &amp; LLM</button>
+        <button class="chip" data-f="cloud" aria-pressed="false">Cloud</button>
+        <button class="chip" data-f="apps" aria-pressed="false">Apps &amp; dashboards</button>
+      </div>
+
+      <div class="grid" id="cards">
+
+        <article class="card" data-tags="scraping api">
+          <h3>Rapid web scraper via REST emulation</h3>
+          <div class="role">Developer &middot; Searce</div>
+          <dl>
+            <dt>Problem</dt><dd>Structured data from web platforms was collected by hand every day.</dd>
+            <dt>Approach</dt><dd>Request-based Python pipeline with dynamic session management, authentication handling and JSON/HTML parsing, instead of a slow browser-driven scraper.</dd>
+            <dt>Result</dt><dd>Daily processing cut from 8 hours to 30 minutes; staffing reduced from 6 FTEs to 1.</dd>
+          </dl>
+          <div class="tags"><span class="tag mono">Python</span><span class="tag mono">Requests</span><span class="tag mono">REST</span><span class="tag mono">JSON</span><span class="tag mono">HTML</span></div>
+        </article>
+
+        <article class="card" data-tags="docs cloud">
+          <h3>Invoice OCR extraction pipeline</h3>
+          <div class="role">Developer &middot; Searce &middot; <a href="#demos">see the demo</a></div>
+          <dl>
+            <dt>Problem</dt><dd>Finance teams keyed invoice data in by hand from PDFs and scans.</dd>
+            <dt>Approach</dt><dd>Tesseract-based pipeline with PikePDF handling, regex validation logic and GCP deployment.</dd>
+            <dt>Result</dt><dd>Improved extraction accuracy by 85% and made finance processing 3x faster.</dd>
+          </dl>
+          <div class="tags"><span class="tag mono">Tesseract</span><span class="tag mono">Python</span><span class="tag mono">PikePDF</span><span class="tag mono">Regex</span><span class="tag mono">GCP</span></div>
+        </article>
+
+        <article class="card" data-tags="ai docs">
+          <h3>Local RAG document Q&amp;A</h3>
+          <div class="role">Personal project &middot; <a href="#demos">see how it works</a></div>
+          <dl>
+            <dt>Problem</dt><dd>Teams needed fast answers from internal documents.</dd>
+            <dt>Approach</dt><dd>A local Python implementation using document chunking, embeddings and FAISS vector search to retrieve relevant passages for grounded question answering.</dd>
+            <dt>Status</dt><dd>Independently developed personal project; not deployed as a production or company system.</dd>
+          </dl>
+          <div class="tags"><span class="tag mono">Python</span><span class="tag mono">FAISS</span><span class="tag mono">Embeddings</span><span class="tag mono">LLM</span></div>
+        </article>
+
+        <article class="card" data-tags="apps">
+          <h3>Bulk email automation desktop app</h3>
+          <div class="role">Developer &middot; Springer Nature</div>
+          <dl>
+            <dt>Problem</dt><dd>Personalized bulk emails took 1-2 hours and depended on a separate Mailchimp tool.</dd>
+            <dt>Approach</dt><dd>Python desktop app (CustomTkinter) using SMTP, HTML templates and Excel inputs.</dd>
+            <dt>Result</dt><dd>Processing time cut from 1-2 hours to 5-10 minutes; the team's Mailchimp dependency eliminated.</dd>
+          </dl>
+          <div class="tags"><span class="tag mono">Python</span><span class="tag mono">SMTP</span><span class="tag mono">CustomTkinter</span><span class="tag mono">Excel</span></div>
+        </article>
+
+        <article class="card" data-tags="api apps">
+          <h3>Excel workbook automation with Microsoft Graph</h3>
+          <div class="role">Developer &middot; Springer Nature</div>
+          <dl>
+            <dt>Problem</dt><dd>Operational data in shared Excel workbooks needed repeatable updates without manual file handling.</dd>
+            <dt>Approach</dt><dd>Python scripts using Microsoft Graph API to read, process and write workbook data.</dd>
+            <dt>Result</dt><dd>Standardized recurring workbook updates and reduced repetitive manual handling.</dd>
+          </dl>
+          <div class="tags"><span class="tag mono">Python</span><span class="tag mono">Microsoft Graph API</span><span class="tag mono">Excel</span><span class="tag mono">REST</span></div>
+        </article>
+
+        <article class="card" data-tags="api cloud">
+          <h3>Google Sheets data-entry API</h3>
+          <div class="role">Developer &middot; Searce</div>
+          <dl>
+            <dt>Problem</dt><dd>Turnaround-time (TAT) data was entered manually and could be edited by users.</dd>
+            <dt>Approach</dt><dd>Python API workflow that writes structured entries to Google Sheets with OAuth2 and access controls, standardizing how TAT data is recorded.</dd>
+            <dt>Result</dt><dd>More consistent TAT tracking across projects with less manual data entry.</dd>
+          </dl>
+          <div class="tags"><span class="tag mono">Python</span><span class="tag mono">Google Sheets API</span><span class="tag mono">OAuth2</span><span class="tag mono">JavaScript</span></div>
+        </article>
+
+        <article class="card" data-tags="docs apps">
+          <h3>End-to-end process automation</h3>
+          <div class="role">Developer &middot; Searce</div>
+          <dl>
+            <dt>Problem</dt><dd>A multi-step operational workflow relied on repetitive manual work and was prone to errors.</dd>
+            <dt>Approach</dt><dd>Full automation pipeline combining Python, Pandas, Selenium, OCR and SMTP/OAuth2 email.</dd>
+            <dt>Result</dt><dd>Staffing cut from 4 FTEs to 1 and processing speed up 75%.</dd>
+          </dl>
+          <div class="tags"><span class="tag mono">Python</span><span class="tag mono">Pandas</span><span class="tag mono">Selenium</span><span class="tag mono">OCR</span><span class="tag mono">SMTP</span></div>
+        </article>
+
+        <article class="card" data-tags="cloud">
+          <h3>Cloud email-attachment pipeline</h3>
+          <div class="role">Developer &middot; Searce</div>
+          <dl>
+            <dt>Result</dt><dd>Automated email attachment extraction and upload to Google Cloud Storage, using Pub/Sub for asynchronous data transfer. Manual effort reduced by 80%.</dd>
+          </dl>
+          <div class="tags"><span class="tag mono">GCS</span><span class="tag mono">Pub/Sub</span><span class="tag mono">Python</span></div>
+        </article>
+
+        <article class="card" data-tags="apps">
+          <h3>Audit dashboard</h3>
+          <div class="role">Developer &middot; Searce</div>
+          <dl>
+            <dt>Result</dt><dd>Interactive dashboard with dynamic charts and error-tracking tables for compliance reviews, built to surface anomalies and shorten audit cycles.</dd>
+          </dl>
+          <div class="tags"><span class="tag mono">Apps Script</span><span class="tag mono">Google Sheets</span><span class="tag mono">JavaScript</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="demos">
+      <h2>Workflow Walkthroughs</h2>
+
+      <div class="panel reveal">
+        <h3>Invoice extraction: scan, extract, validate</h3>
+        <p class="cap">A simplified version of the OCR approach: read the document, pull out fields, normalize them, then check that the numbers add up.</p>
+        <div class="demo">
+          <div class="paper" id="paper" aria-label="Sample invoice">
+            <div class="scan"></div>
+            <h4 id="f-vendor"><span class="f" id="fv">SAMPLE TRADERS PVT LTD</span></h4>
+            <div class="meta">
+              <div>Invoice No: <span class="f" id="fn">INV-2043</span></div>
+              <div>Date: <span class="f" id="fd">12/03/2026</span></div>
+            </div>
+            <div>Bill to: Demo Customer</div>
+            <div class="row" style="margin-top:8px"><span>Item A &times; 10</span><span class="f" id="fi1">12,000.00</span></div>
+            <div class="row"><span>Item B &times; 5</span><span class="f" id="fi2">6,450.00</span></div>
+            <div class="row tot"><span>Total</span><span class="f" id="ft">18,450.00</span></div>
+          </div>
+          <pre class="out mono" id="ocrout" aria-live="polite"></pre>
+        </div>
+        <div class="controls">
+          <button class="btn primary" id="runocr">Run extraction</button>
+          <button class="btn" id="resetocr">Reset</button>
+          <span class="status" id="ocrstatus">Ready.</span>
+        </div>
+      </div>
+
+      <div class="panel reveal">
+        <h3>RAG document Q&amp;A: how it works</h3>
+        <p class="cap">Step through the pipeline from question to grounded answer. This is an illustration of the approach, not a production system.</p>
+        <div class="steps" id="steps" role="tablist"></div>
+        <div class="stage">
+          <div><h4 id="stitle"></h4><p id="sdesc"></p></div>
+          <div class="vis" id="svis"></div>
+        </div>
+        <div class="controls">
+          <button class="btn" id="prev">Back</button>
+          <button class="btn primary" id="next">Next</button>
+          <button class="btn" id="play">Play</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <p class="sub">Core tools I use across automation, APIs, data processing and exploratory AI work.</p>
+      <div class="skills reveal">
+        <div class="skill"><h3>Programming</h3><p>Python, Pandas, JavaScript, VBA, Google Apps Script</p></div>
+        <div class="skill"><h3>Automation</h3><p>Selenium, Playwright, web scraping, workflow automation, email automation</p></div>
+        <div class="skill"><h3>APIs &amp; backend</h3><p>REST APIs, Microsoft Graph API, HTTP requests, JSON, Flask, SMTP</p></div>
+        <div class="skill"><h3>AI &amp; document processing</h3><p>LLM prompting, RAG prototyping, embeddings, vector search, FAISS, OCR, Tesseract, OpenCV</p></div>
+        <div class="skill"><h3>Cloud &amp; tools</h3><p>GCP, Google Cloud Storage, Google Cloud Pub/Sub, Git, Streamlit, CustomTkinter</p></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <p class="sub">Hands-on experience across publishing operations and business process improvement.</p>
+      <div class="job reveal">
+        <h3>Process Automation Engineer &middot; Springer Nature Technology &amp; Publishing Solutions</h3>
+        <div class="when">Pune &middot; Dec 2025 &ndash; Present</div>
+        <ul>
+          <li>Built a Python desktop app for personalized email sends, cutting processing from 1-2 hours to 5-10 minutes.</li>
+          <li>Built Python scripts that pull data from internal platform APIs, filter and process records, and trigger workflow actions via HTTP requests.</li>
+          <li>Automated publishing workflows with Selenium and run recurring Python scripts over large datasets.</li>
+          <li>Explored local LLM/RAG approaches through a personal project for context-grounded document Q&amp;A.</li>
+          <li>Used Microsoft Graph API with Python to read, process and update Excel workbook data.</li>
+        </ul>
+      </div>
+      <div class="job reveal">
+        <h3>Analyst &ndash; Business Process Improvement &middot; Searce Inc.</h3>
+        <div class="when">Pune &middot; Nov 2023 &ndash; Nov 2025</div>
+        <ul>
+          <li>Independently developed and deployed a scraping solution: 8 hours to 30 minutes daily, 6 FTEs to 1.</li>
+          <li>Built an OCR invoice extraction pipeline that accelerated finance processing 3x.</li>
+          <li>Automated an end-to-end operational workflow: 4 FTEs to 1, 75% faster.</li>
+          <li>Automated email attachment extraction to Google Cloud Storage (80% less manual effort) using Pub/Sub.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education &amp; certifications</h2>
+      <p class="sub">Computer Science foundation and professional automation training.</p>
+      <div class="edu reveal">
+        <div class="skill"><h3>Bachelor of Computer Science</h3><p>Fergusson College, Pune &middot; 2020 &ndash; 2023<br>Computer Science topper, batch of 2023</p></div>
+        <div class="skill"><h3>Certifications</h3><p>UiPath Certified Automation Developer Professional (UiPath Academy)<br>Python Programming Essentials (Coursera)</p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact reveal">
+        <h2>Let's talk</h2>
+        <p>Interested in Python automation, API-driven workflows and practical AI automation opportunities. Feel free to reach out.</p>
+        <div class="cta" style="justify-content:center">
+          <a class="btn primary" href="mailto:prajwalmhaske53@gmail.com">prajwalmhaske53@gmail.com</a>
+          <a class="btn" href="https://www.linkedin.com/in/prajwal-mhaske-b595831b4/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer><div class="wrap">&copy; <span id="y"></span> Prajwal Mhaske &middot; Demos use made-up sample data</div></footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function (id) { return document.getElementById(id); };
+
+  $("y").textContent = new Date().getFullYear();
+
+  /* theme toggle */
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem("theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
+  $("theme").addEventListener("click", function () {
+    var dark = root.getAttribute("data-theme") === "dark" ||
+      (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    var next = dark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+
+  /* reveal on scroll + bar animation */
+  var targets = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    targets.forEach(function (el) { io.observe(el); });
+  } else {
+    targets.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  /* Animate only the rotating phrase after “I build”. The hero and profile
+     description remain mounted and are never hidden or re-rendered. */
+  var words = ["API-driven workflows", "web automation", "document processing", "OCR pipelines", "LLM-powered RAG systems"];
+  var wi = 0, rot = $("rot"), rotating = false;
+  if (rot) {
+    window.setInterval(function () {
+      if (rotating) return;
+      rotating = true;
+      rot.classList.remove("slide-in");
+      rot.classList.add("slide-out");
+      window.setTimeout(function () {
+        wi = (wi + 1) % words.length;
+        rot.textContent = words[wi];
+        rot.classList.remove("slide-out");
+        rot.classList.add("slide-in");
+        window.setTimeout(function () {
+          rot.classList.remove("slide-in");
+          rotating = false;
+        }, 500);
+      }, 350);
+    }, 3000);
+  }
+
+  /* project filter */
+  var chips = document.querySelectorAll(".chip");
+  var cards = document.querySelectorAll("#cards .card");
+  chips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      var f = chip.getAttribute("data-f");
+      chips.forEach(function (c) { c.setAttribute("aria-pressed", c === chip ? "true" : "false"); });
+      cards.forEach(function (card) {
+        var tags = (card.getAttribute("data-tags") || "").split(" ");
+        card.hidden = !(f === "all" || tags.indexOf(f) !== -1);
+      });
+    });
+  });
+
+  /* OCR demo */
+  var timers = [];
+  var fieldIds = ["fv", "fn", "fd", "fi1", "fi2", "ft"];
+  var paper = $("paper"), out = $("ocrout"), status = $("ocrstatus"), runBtn = $("runocr");
+  function clearTimers() { timers.forEach(clearTimeout); timers = []; }
+  function resetOcr() {
+    clearTimers();
+    paper.classList.remove("scanning");
+    fieldIds.forEach(function (id) { $(id).classList.remove("hit"); });
+    out.textContent = "";
+    status.textContent = "Ready.";
+    runBtn.disabled = false;
+  }
+  function runOcr() {
+    resetOcr();
+    runBtn.disabled = true;
+    status.textContent = "Scanning...";
+    if (!reduce) { void paper.offsetWidth; paper.classList.add("scanning"); }
+    var items = [12000, 6450], total = 18450;
+    var sum = items.reduce(function (a, b) { return a + b; }, 0);
+    var seq = [
+      { f: ["fv"], l: "{" },
+      { f: ["fv"], l: '  "vendor": "Sample Traders Pvt Ltd",' },
+      { f: ["fn"], l: '  "invoice_no": "INV-2043",' },
+      { f: ["fd"], l: '  "date": "2026-03-12",' },
+      { f: ["fi1", "fi2"], l: '  "line_items": [' + items.join(", ") + "]," },
+      { f: ["ft"], l: '  "total": ' + total + "," },
+      { f: [], l: '  "checks": {' },
+      { f: [], l: '    "total_matches_line_items": ' + (sum === total) + "," },
+      { f: [], l: '    "date_is_valid": true' },
+      { f: [], l: "  }" },
+      { f: [], l: "}" }
+    ];
+    seq.forEach(function (s, i) {
+      timers.push(setTimeout(function () {
+        s.f.forEach(function (id) { $(id).classList.add("hit"); });
+        out.textContent += s.l + "\n";
+      }, reduce ? 0 : 400 + i * 340));
+    });
+    timers.push(setTimeout(function () {
+      status.textContent = "Done. Validation passed.";
+      runBtn.disabled = false;
+    }, reduce ? 0 : 400 + seq.length * 340 + 200));
+  }
+  runBtn.addEventListener("click", runOcr);
+  $("resetocr").addEventListener("click", resetOcr);
+
+  /* RAG stepper */
+  var bars = [40, 72, 25, 88, 55, 33, 64, 90, 18, 77, 48, 60, 30, 82, 45, 68];
+  var barHtml = '<div class="vbars">' + bars.map(function (h, i) {
+    return '<i style="height:' + h + '%;animation-delay:' + (i * 30) + 'ms"></i>';
+  }).join("") + "</div>";
+  var pts = [[12,22],[25,70],[38,35],[50,80],[62,20],[78,60],[88,30],[20,45],[70,85],[45,12],[92,75],[8,85]];
+  var hot = { 2: 1, 7: 1, 9: 1 };
+  var scatterHtml = '<div class="scatter">' + pts.map(function (p, i) {
+    return '<i class="' + (hot[i] ? "hot" : "") + '" style="left:' + p[0] + "%;top:" + p[1] + '%"></i>';
+  }).join("") + '<i class="q" style="left:30%;top:38%"></i></div>';
+  var steps = [
+    { n: "1. Question", t: "A user asks a question",
+      d: "The question arrives in plain language, for example about a policy document.",
+      v: '<div class="vq">&ldquo;What is the refund window in the policy document?&rdquo;</div>' },
+    { n: "2. Embed", t: "Turn the question into a vector",
+      d: "An embedding model converts the question into a list of numbers that captures its meaning. The document chunks were converted the same way beforehand.",
+      v: barHtml },
+    { n: "3. Search", t: "Find the nearest chunks",
+      d: "FAISS searches the stored vectors and returns the chunks closest to the question. Here the square is the question and the bright dots are its nearest neighbours.",
+      v: scatterHtml },
+    { n: "4. Retrieve", t: "Pull the matching passages",
+      d: "The top passages are fetched as context, so the model works from the actual documents.",
+      v: '<div class="chunks"><div class="chunk"><b>Chunk 12</b> &middot; Refund policy</div><div class="chunk" style="animation-delay:.12s"><b>Chunk 13</b> &middot; Exceptions</div><div class="chunk" style="animation-delay:.24s"><b>Chunk 31</b> &middot; Contact details</div></div>' },
+    { n: "5. Answer", t: "Generate a grounded answer",
+      d: "The LLM answers using only the retrieved passages and points back to its sources, which makes the answer easier to check.",
+      v: '<div class="ans">An answer written from the retrieved text, with the source passages cited. <span class="mono">[12] [13]</span></div>' }
+  ];
+  var cur = 0, timer = null;
+  var stepsEl = $("steps");
+  steps.forEach(function (s, i) {
+    var b = document.createElement("button");
+    b.className = "step"; b.type = "button"; b.textContent = s.n;
+    b.addEventListener("click", function () { stop(); show(i); });
+    stepsEl.appendChild(b);
+  });
+  function show(i) {
+    cur = i;
+    var kids = stepsEl.children;
+    for (var k = 0; k < kids.length; k++) kids[k].classList.toggle("active", k === i);
+    $("stitle").textContent = steps[i].t;
+    $("sdesc").textContent = steps[i].d;
+    $("svis").innerHTML = steps[i].v;
+  }
+  function stop() { if (timer) { clearInterval(timer); timer = null; $("play").textContent = "Play"; } }
+  $("next").addEventListener("click", function () { stop(); show((cur + 1) % steps.length); });
+  $("prev").addEventListener("click", function () { stop(); show((cur + steps.length - 1) % steps.length); });
+  $("play").addEventListener("click", function () {
+    if (timer) { stop(); return; }
+    $("play").textContent = "Pause";
+    timer = setInterval(function () { show((cur + 1) % steps.length); }, 2600);
+  });
+  show(0);
+})();
+</script>
+</body>
+</html>
